@@ -41,84 +41,84 @@ final kIShadow = [
 
 Map<int, Map<int, dynamic>> questions = {
   1: {
-    0: 'Question 1',
-    1: 'Option 1',
-    2: 'Option 2',
-    3: 'Option 3',
-    4: 'Option 4',
+    0: 'Entomology is the science that studies',
+    1: 'Behavior of human beings',
+    2: 'Insects',
+    3: 'The origin and history of technical and scientific terms',
+    4: 'The formation of rocks',
     5: 2 // Denotes Correct Option...
   },
   2: {
-    0: 'Question 2',
-    1: 'Option 1',
-    2: 'Option 2',
-    3: 'Option 3',
-    4: 'Option 4',
-    5: 4 // Denotes Correct Option...
-  },
-  3: {
-    0: 'Question 3',
-    1: 'Option 1',
-    2: 'Option 2',
-    3: 'Option 3',
-    4: 'Option 4',
-    5: 3 // Denotes Correct Option...
-  },
-  4: {
-    0: 'Question 4',
-    1: 'Option 1',
-    2: 'Option 2',
-    3: 'Option 3',
-    4: 'Option 4',
+    0: 'Grand Central Terminal, Park Avenue, New York is the world\'s',
+    1: 'largest railway station',
+    2: 'highest railway station',
+    3: 'longest railway station',
+    4: 'None of the above',
     5: 1 // Denotes Correct Option...
   },
-  5: {
-    0: 'Question 5',
-    1: 'Option 1',
-    2: 'Option 2',
-    3: 'Option 3',
-    4: 'Option 4',
+  3: {
+    0: 'Eritrea, which became the 182nd member of the UN in 1993, is in the continent of',
+    1: 'Asia',
+    2: 'Africa',
+    3: 'Europe',
+    4: 'Australia',
     5: 2 // Denotes Correct Option...
   },
+  4: {
+    0: 'Garampani sanctuary is located at',
+    1: 'Junagarh, Gujarat',
+    2: 'Diphu, Assam',
+    3: 'Kohima, Nagaland',
+    4: 'Gangtok, Sikkim',
+    5: 2 // Denotes Correct Option...
+  },
+  5: {
+    0: 'For which of the following disciplines is Nobel Prize awarded?',
+    1: 'Physics and Chemistry',
+    2: 'Physiology or Medicine',
+    3: 'Literature, Peace and Economics',
+    4: 'All of the above',
+    5: 4 // Denotes Correct Option...
+  },
   6: {
-    0: 'Question 6',
-    1: 'Option 1',
-    2: 'Option 2',
-    3: 'Option 3',
-    4: 'Option 4',
+    0: 'Hitler party which came into power in 1933 is known as',
+    1: 'Labour Party',
+    2: 'Nazi Party',
+    3: 'Ku-Klux-Klan',
+    4: 'Democratic Party',
     5: 3 // Denotes Correct Option...
   },
   7: {
-    0: 'Question 7',
-    1: 'Option 1',
-    2: 'Option 2',
-    3: 'Option 3',
-    4: 'Option 4',
-    5: 4 // Denotes Correct Option...
+    0: 'FFC stands for',
+    1: 'Foreign Finance Corporation',
+    2: 'Film Finance Corporation',
+    3: 'Federation of Football Council',
+    4: 'None of the above',
+    5: 2 // Denotes Correct Option...
   },
   8: {
-    0: 'Question 8',
-    1: 'Option 1',
-    2: 'Option 2',
-    3: 'Option 3',
-    4: 'Option 4',
+    0: 'Fastest shorthand writer was',
+    1: 'Dr. G. D. Bist',
+    2: 'J.R.D. Tata',
+    3: 'J.M. Tagore',
+    4: 'Khudada Khan',
     5: 1 // Denotes Correct Option...
   },
   9: {
-    0: 'Question 9',
-    1: 'Option 1',
-    2: 'Option 2',
-    3: 'Option 3',
-    4: 'Option 4',
-    5: 2 // Denotes Correct Option...
+    0: 'Epsom (England) is the place associated with',
+    1: 'Horse racing',
+    2: 'Polo',
+    3: 'Shooting',
+    4: 'Snooker',
+    5: 1 // Denotes Correct Option...
   },
   10: {
-    0: 'Question 10',
-    1: 'Option 1',
-    2: 'Option 2',
-    3: 'Option 3',
-    4: 'Option 4',
-    5: 3 // Denotes Correct Option...
+    0: 'First human heart transplant operation conducted by Dr. Christiaan Barnard on Louis Washkansky, was conducted in',
+    1: '1967',
+    2: '1968',
+    3: '1958',
+    4: '1922',
+    5: 1 // Denotes Correct Option...
   },
 };
 

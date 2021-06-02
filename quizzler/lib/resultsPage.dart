@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizzler/constants.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:quizzler/widgets/custom_buttons.dart';
 
 class ResultsPage extends StatelessWidget {
   final double finalScore;
@@ -49,26 +50,45 @@ class ResultsPage extends StatelessWidget {
       onWillPop: () {
         return new Future(() => false);
       },
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-        color: kBoxColor,
-        child: SafeArea(
-          child: Column(
-            children: [
-              StatsTile(
-                  count: finalScore,
-                  title: "Score",
-                  total: totalQuestions,
-                  type: 0),
-              GridView.count(
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                childAspectRatio: 1,
-                crossAxisSpacing: 15,
-                mainAxisSpacing: 6.5,
-                children: stats,
-              ),
-            ],
+      child: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+          color: kBoxColor,
+          child: SafeArea(
+            child: Column(
+              children: [
+                // Total Score Area
+                StatsTile(
+                    count: finalScore,
+                    title: "Score",
+                    total: totalQuestions,
+                    type: 0),
+                // Detailed Stats Area
+                GridView.count(
+                  crossAxisCount: 2,
+                  shrinkWrap: true,
+                  childAspectRatio: 1,
+                  crossAxisSpacing: 15,
+                  mainAxisSpacing: 6.5,
+                  children: stats,
+                ),
+                // Bottom Button Area
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: BottomLargeButton(
+                    btnTitle: 'Exit',
+                    moveToPage: 0,
+                    margin: EdgeInsets.fromLTRB(
+                      15.0,
+                      30.0,
+                      15.0,
+                      15.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -89,10 +109,18 @@ class StatsTile extends StatelessWidget {
       required this.total,
       required this.type});
 
-  Color _getProgressColor(int type) {
+  Color _getProgressColor(int type, double score) {
     Color progressColor;
     if (type == 0) {
-      progressColor = Color(0xff9fe6a0);
+      if (score < 0.5) {
+        progressColor = Colors.redAccent;
+      } else if (score >= 0.5 && score < 0.75) {
+        progressColor = Colors.amber;
+      } else if (score >= 0.75 && score <= 1.0) {
+        progressColor = Color(0xff9fe6a0);
+      } else {
+        progressColor = Colors.black;
+      }
     } else if (type == 1) {
       progressColor = Colors.lightBlue;
     } else if (type == 2) {
@@ -128,7 +156,7 @@ class StatsTile extends StatelessWidget {
               lineWidth: type == 0 ? 12 : 8.0,
               backgroundColor: Colors.white,
               percent: count < 0 ? 0.0 : count.ceil().toInt() / total,
-              progressColor: _getProgressColor(type),
+              progressColor: _getProgressColor(type, count / total),
               circularStrokeCap: CircularStrokeCap.round,
               animation: true,
               center: type == 0

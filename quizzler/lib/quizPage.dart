@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:quizzler/constants.dart';
-import 'package:quizzler/homePage.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:quizzler/resultsPage.dart';
 
@@ -168,32 +167,6 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Column _buildResults() {
-    //   return Column(
-    //     children: [
-    //       Text(
-    //         'Total Score: $finalScore',
-    //         style: TextStyle(color: Colors.white, fontSize: 18.0),
-    //       ),
-    //       Text('Questions Attempted: $questionsAttempted',
-    //           style: TextStyle(color: Colors.white, fontSize: 18.0)),
-    //       Text('Correctly Answered: $correctlyAnswered',
-    //           style: TextStyle(color: Colors.white, fontSize: 18.0)),
-    //       Text('Wromgly Answered: $wronglyAnswered',
-    //           style: TextStyle(color: Colors.white, fontSize: 18.0)),
-    //       Text('Questions Skipped: $questionsSkipped',
-    //           style: TextStyle(color: Colors.white, fontSize: 18.0)),
-    //       TextButton(
-    //         child: Text('Exit Game',
-    //             style: TextStyle(color: Colors.white, fontSize: 18.0)),
-    //         onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-    //             MaterialPageRoute(builder: (c) => HomePage()),
-    //             (route) => false),
-    //       )
-    //     ],
-    //   );
-    // }
-
     Column _buildQuestionWithOptions() {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -305,7 +278,7 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
 
-          // Next Question Button
+          // Bottom Btns and Text Area
           Padding(
             padding: const EdgeInsets.fromLTRB(25.0, 5.0, 25.0, 10.0),
             child: Row(
@@ -406,17 +379,20 @@ class _QuizPageState extends State<QuizPage> {
     setState(() {
       gameOver = questionsCovered == questions.length;
     });
-    return Material(
-      color: Colors.grey[850],
-      child: !gameOver
-          ? _buildQuestionWithOptions()
-          : ResultsPage(
-              finalScore: finalScore,
-              correctlyAnswered: correctlyAnswered,
-              wronglyAnswered: wronglyAnswered,
-              questionsAttempted: questionsAttempted,
-              questionsSkipped: questionsSkipped,
-            ),
+    return WillPopScope(
+      onWillPop: _exitGameDialog,
+      child: Material(
+        color: Colors.grey[850],
+        child: !gameOver
+            ? _buildQuestionWithOptions()
+            : ResultsPage(
+                finalScore: finalScore,
+                correctlyAnswered: correctlyAnswered,
+                wronglyAnswered: wronglyAnswered,
+                questionsAttempted: questionsAttempted,
+                questionsSkipped: questionsSkipped,
+              ),
+      ),
     );
   }
 }

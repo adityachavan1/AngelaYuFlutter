@@ -6,7 +6,7 @@ import 'package:quizzler/custom_clippers/bottom_left_clipper_bottom.dart';
 import 'package:quizzler/custom_clippers/clip_shadow_path.dart';
 import 'package:quizzler/custom_clippers/top_right_clipper.dart';
 import 'package:quizzler/custom_clippers/top_right_clipper_bottom.dart';
-import 'package:quizzler/quizPage.dart';
+import 'package:quizzler/widgets/custom_buttons.dart';
 import 'package:shimmer/shimmer.dart';
 
 class HomePage extends StatelessWidget {
@@ -127,51 +127,12 @@ class HomePage extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Container(
-                height: 52.0,
+              child: BottomLargeButton(
+                btnTitle: 'Take a Quiz',
+                moveToPage: 1,
                 margin: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 58.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => QuizPage()));
-                  },
-                  style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                      EdgeInsets.all(0.0),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(75.0),
-                      ),
-                    ),
-                  ),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          // colors: [Color(0xff00b09b), Color(0xff96c93d)],
-                          colors: [Color(0xff04BABA), Color(0xff9fe6a0)],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                        ),
-                        borderRadius: BorderRadius.circular(28.0)),
-                    child: Container(
-                      constraints:
-                          BoxConstraints(maxWidth: 280.0, minHeight: 52.0),
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Take a quiz",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22.0,
-                            letterSpacing: 1.8,
-                            fontFamily: 'Canela'),
-                      ),
-                    ),
-                  ),
-                ),
               ),
-            )
+            ),
           ],
         ),
       ),
