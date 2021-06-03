@@ -162,6 +162,7 @@ class _QuizPageState extends State<QuizPage> {
   @override
   void initState() {
     questionKeys = questions.keys.toList()..shuffle();
+    questionKeys = questionKeys.take(10).toList();
     super.initState();
   }
 
