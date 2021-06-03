@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:quizzler/homePage.dart';
 
-void main() => runApp(Quizzler());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
+    runApp(new Quizzler());
+  });
+}
 
 class Quizzler extends StatelessWidget {
   @override

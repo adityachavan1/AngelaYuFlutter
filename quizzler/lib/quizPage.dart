@@ -11,6 +11,7 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  static final int total_num_questions = 10;
   CountDownController _controller = CountDownController();
   int _duration = 20;
 
@@ -162,7 +163,7 @@ class _QuizPageState extends State<QuizPage> {
   @override
   void initState() {
     questionKeys = questions.keys.toList()..shuffle();
-    questionKeys = questionKeys.take(10).toList();
+    questionKeys = questionKeys.take(total_num_questions).toList();
     super.initState();
   }
 
@@ -378,7 +379,7 @@ class _QuizPageState extends State<QuizPage> {
     }
 
     setState(() {
-      gameOver = questionsCovered == questions.length;
+      gameOver = questionsCovered == total_num_questions;
     });
     return WillPopScope(
       onWillPop: _exitGameDialog,
